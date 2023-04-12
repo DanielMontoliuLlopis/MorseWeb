@@ -10,9 +10,7 @@ const InitPage: React.FC = () => {
     const [translatedToMorse, setTranslatedToMorse]=useState("")
     const [translatedToEng, setTranslatedToEng]=useState([])
 
-
-
-    const translateToMorse =   (text: string) => {
+    const translateToMorse = (text: string) => {
         TranslationApi.translateToMorse(text)
         .then(response =>
              {setTranslatedToMorse( response.data[0])})
@@ -31,25 +29,17 @@ const InitPage: React.FC = () => {
             <Title>Translator</Title>
             <DivWithTranslatorComponents>
                 <DivWithTranslatorComponent>
-            <TranslatorComponent title="Translator to morse" handle={translateToMorse}></TranslatorComponent>
-            <p>{translatedToMorse}</p>
-            </DivWithTranslatorComponent>
-            <DivWithTranslatorComponent>
-            <TranslatorComponent title="Translator to String" handle={translateToEng}></TranslatorComponent>
-            <p></p>
-            {
-            translatedToEng.map( (translatedText, key) => 
-             <p key={key}>
-                Translated: {translatedText} {key}
-            </p> 
-            
-            )
-            }
-            </DivWithTranslatorComponent>
+                    <TranslatorComponent title="Translator to morse" handle={translateToMorse}/>
+                    <p>{translatedToMorse}</p>
+                </DivWithTranslatorComponent>
+                <DivWithTranslatorComponent>
+                    <TranslatorComponent title="Translator to String" handle={translateToEng}></TranslatorComponent>
+                    <p/>
+                    {translatedToEng.map( (translatedText, key) => <p key={key}> Translated: {translatedText} {key}</p>)}
+                </DivWithTranslatorComponent>
             </DivWithTranslatorComponents>
         </Init>
     )
-
 }
-export default InitPage
 
+export default InitPage
