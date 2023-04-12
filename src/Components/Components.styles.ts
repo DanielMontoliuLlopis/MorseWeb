@@ -52,7 +52,7 @@ export const DivWithTranslatorComponents= styled.div`
 `
 
 export const DivWithTranslatorComponent= styled.div`
-background-color: white;
+    background-color: white;
     border-radius: 12px;
     flex: 50%;
     margin: 5px 30px;
